@@ -1,5 +1,7 @@
 import express from 'express'
 import authRoute from './routes/authRoute.js'
+import userRoute from "./routes/userRoute.js"
+import moiveRoute from "./routes/movieRoute.js"
 import errorHandler from './middleware/errorHandler.js'
 
 const app = express()
@@ -8,6 +10,8 @@ const PORT = process.env.PORT
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use("/auth", authRoute)
+app.use("/user", userRoute)
+app.use("/movie", moiveRoute)
 
 app.use(errorHandler)
 
